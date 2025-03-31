@@ -34,35 +34,26 @@ const{address:{city}} = userBanks
 console.log(city);
 
 // third
-function deepClone(obj) {
-    if (obj === null || typeof obj !== 'object') {
-        return obj;  
-    }
-    
-    const newObj = Array.isArray(obj) ? [] : {};  
-
-    for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            newObj[key] = deepClone(obj[key]); 
-        }
-    }
-
-    return newObj;
-}
-
 const originalUser = {
-    name: "John",
-    age: 30,
-    address: {
-        city: "Tbilisi",
-        zip: "12345"
-    },
-    hobbies: ["reading", "cycling"]
+name: 'John',
+age: 30,
+address: {
+    city: 'kutaisi',
+    
+},
+hobbies: ["reading", "cycling"]
 };
 
-const clonedUser = deepClone(originalUser);
-clonedUser.address.city = "Batumi";
-clonedUser.hobbies.push("swimming");
+const user2 = {
+    ...originalUser,
+    address:{
+        ...originalUser.address
+    },
+    hobbies:{
+        ...originalUser.hobbies
+    }
+}
 
-console.log(originalUser);  
-console.log(clonedUser);    
+user2.age = 45
+console.log(originalUser);
+console.log(user2);
