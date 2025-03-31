@@ -17,34 +17,21 @@ console.log(result);
 
 
 // second
-function getCity(user) {
-    const { banks } = user;
-    if (banks && banks[2] && banks[2].address) {
-        const { address: { city } } = banks[2];  
-        return city;
+const userBanks = {
+    firstName: 'kno',
+    lastName: 'Schweiger',
+    age: 33,
+    address: {
+        district:'vake' , 
+        street:'mikeladze',
+        strNum: 1,
+        city: 'tbilisi'
     }
-    return undefined;
+
 }
-const user = {
-    name: 'Leo',
-    banks: [
-        { address: { city: 'Tbilisi' } },
-        { address: { city: 'Batumi' } },
-        { address: { city: 'Kutaisi' } }
-    ]
-};
 
-console.log(getCity(user));
-
-const user2 = {
-    name: 'Anna',
-    banks: [
-        { address: { city: 'Tbilisi' } },
-        { address: { city: 'Batumi' } }
-    ]
-};
-
-console.log(getCity(user2));  
+const{address:{city}} = userBanks
+console.log(city);
 
 // third
 function deepClone(obj) {
